@@ -21,8 +21,8 @@ Trang web tỏ tình dễ thương với phong cách pixel art, nút "Không" n�
 ### Bước 1: Clone Repository
 
 ```bash
-git clone https://github.com/your-username/confession-web.git
-cd confession-web
+git clone https://github.com/TrVHau/confess-to-girlfriend.git
+cd confess-to-girlfriend
 ```
 
 ### Bước 2: Cấu Hình Nội Dung
