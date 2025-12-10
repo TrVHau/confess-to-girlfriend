@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang web tỏ tình tương tác dễ thương">
+    <meta name="author" content="Confession Web">
+    <title>💕 làm ny tớ nhé 💕</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+    <!-- Canvas cho hiệu ứng confetti -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Container chính -->
+    <div class="container">
+        <!-- Câu hỏi tỏ tình (được load từ config.js) -->
+        <h1 class="question"></h1>
+        
+        <!-- Các nút bấm -->
+        <div class="buttons-container">
+            <button class="btn btn-yes" id="yesBtn">💖 Đồng ý</button>
+            <button class="btn btn-no" id="noBtn">😢 Không</button>
+        </div>
+    </div>
+
+    <!-- Modal hiển thị khi bấm Đồng ý -->
+    <div class="modal" id="resultModal">
+        <div class="modal-content">
+            <!-- Nội dung được load từ config.js -->
+            <h2 class="modal-title">Yay! 💕</h2>
+            <p class="modal-subtitle">Bây giờ hãy cho tớ biết lý do em yêu tớ nhé!</p>
+            
+            <!-- Form nhập lý do -->
+            <form class="reason-form" id="reasonForm">
+                <label for="reasonInput">Lý do yêu là gì? 💖</label>
+                <textarea 
+                    id="reasonInput" 
+                    name="reason" 
+                    placeholder="Viết lý do của bạn tại đây..."
+                    required
+                ></textarea>
+                <button type="submit">Gửi đi! ✨</button>
+            </form>
+            
+            <!-- Thông báo thành công -->
+            <div id="successMessage" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/config.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

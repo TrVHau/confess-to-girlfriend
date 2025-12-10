@@ -1,0 +1,350 @@
+/* ========================================
+   CONFESSION WEB - STYLESHEET
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../background.png') center/cover fixed;
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Overlay màu hồng khi bấm đồng ý */
+body.accepted::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.8) 0%, rgba(200, 109, 215, 0.8) 50%, rgba(255, 105, 180, 0.8) 100%);
+    z-index: 0;
+    animation: fadeIn 0.5s ease;
+}
+
+/* ========================================
+   HIỆU ỨNG TIM BAY NỀN - PIXEL STYLE
+   ======================================== */
+.heart-bg {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url('../heart.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: floatHearts 10s infinite linear;
+    pointer-events: none;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    z-index: 1;
+}
+
+@keyframes floatHearts {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ========================================
+   CONTAINER CHÍNH
+   ======================================== */
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 50px;
+    border-radius: 15px;
+    border: 5px solid #000;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+}
+
+/* ========================================
+   CÂU HỎI TỎ TÌNH
+   ======================================== */
+.question {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2em;
+    color: #ff1493;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    line-height: 1.8;
+}
+
+/* ========================================
+   CÁC NÚT BẤM
+   ======================================== */
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 0.9em;
+    font-weight: 700;
+    border: 4px solid #000;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 5px 5px 0px #000;
+    min-width: 180px;
+    flex: 1;
+    max-width: 200px;
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c86dd7 100%);
+    color: white;
+    position: relative;
+    z-index: 3;
+    order: 1;
+}
+
+.btn-yes:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #000;
+}
+
+.btn-yes:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0px 0px 0px #000;
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #d3d3d3 0%, #a9a9a9 100%);
+    color: white;
+    position: fixed;
+    z-index: 5;
+    order: 2;
+}
+
+.btn-no:hover {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+}
+
+/* ========================================
+   MODAL KẾT QUẢ
+   ======================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #fff5f7 0%, #ffe8f0 100%);
+    padding: 50px;
+    border-radius: 15px;
+    border: 5px solid #000;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.5s ease;
+    position: relative;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5em;
+    color: #ff1493;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 0px rgba(255, 105, 180, 0.3);
+    line-height: 1.8;
+}
+
+.modal-subtitle {
+    font-size: 0.9em;
+    color: #ff69b4;
+    margin-bottom: 25px;
+    font-weight: 600;
+    line-height: 1.8;
+}
+
+/* ========================================
+   CANVAS CONFETTI
+   ======================================== */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* ========================================
+   FORM NHẬP LÝ DO
+   ======================================== */
+.reason-form {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.reason-form label {
+    display: block;
+    font-size: 0.9em;
+    color: #ff1493;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.reason-form textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7em;
+    border: 4px solid #ff69b4;
+    border-radius: 0;
+    background: #fff;
+    color: #333;
+    resize: vertical;
+    line-height: 1.6;
+    box-shadow: 4px 4px 0px rgba(255, 105, 180, 0.3);
+}
+
+.reason-form textarea:focus {
+    outline: none;
+    border-color: #ff1493;
+    box-shadow: 6px 6px 0px rgba(255, 20, 147, 0.5);
+}
+
+.reason-form button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    background: linear-gradient(135deg, #ff6b9d 0%, #c86dd7 100%);
+    color: white;
+    border: 4px solid #000;
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow: 5px 5px 0px #000;
+    transition: all 0.3s ease;
+}
+
+.reason-form button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0px #000;
+}
+
+.reason-form button:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0px 0px 0px #000;
+}
+
+.success-message {
+    margin-top: 20px;
+    padding: 20px;
+    background: #4CAF50;
+    color: white;
+    border: 4px solid #000;
+    box-shadow: 5px 5px 0px #000;
+    font-size: 0.8em;
+    line-height: 1.6;
+    animation: slideDown 0.5s ease;
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 25px;
+    }
+
+    .question {
+        font-size: 0.9em;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 0.7em;
+        min-width: 200px;
+    }
+
+    .modal-content {
+        padding: 30px 20px;
+    }
+
+    .modal-title {
+        font-size: 1.2em;
+    }
+
+    .modal-subtitle {
+        font-size: 0.8em;
+    }
+
+    .reason-form textarea {
+        font-size: 0.6em;
+    }
+
+    .reason-form button {
+        font-size: 0.7em;
+    }
+}
